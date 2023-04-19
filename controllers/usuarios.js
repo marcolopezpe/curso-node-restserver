@@ -2,16 +2,20 @@ import {request, response} from "express";
 import Usuario from "../models/usuario.js";
 import bcryptjs from "bcryptjs";
 
-const usuariosGet = (req = request, res = response) => {
-  const {q, nombre = 'No Name', apikey, page = 1, limit = 10} = req.query;
+const usuariosGet = async (req = request, res = response) => {
+  const {limite = 5, desde = 0} = req.query;
+  const query = {estado: true};
+
+  const [total, usuarios] = await Promise.all([
+    Usuario.countDocuments(query),
+    Usuario.find(query)
+      .skip(Number(desde))
+      .limit(Number(limite))
+  ]);
 
   res.json({
-    msg: "get API",
-    q,
-    nombre,
-    apikey,
-    page,
-    limit
+    total,
+    usuarios
   });
 };
 
@@ -57,10 +61,14 @@ const usuariosPatch = (req, res = response) => {
   });
 }
 
-const usuariosDelete = (req, res = response) => {
-  res.json({
-    msg: "delete API"
-  });
+const usuariosDelete = async (req, res = response) => {
+  const {id} = req.params;
+
+  // const usuario = await Usuario.findByIdAndDelete(id); // Eliminado fisico
+
+  const usuario = await Usuario.findByIdAndUpdate(id, {estado: false}); // Eliminado logico
+
+  res.json(usuario);
 }
 
 export {
