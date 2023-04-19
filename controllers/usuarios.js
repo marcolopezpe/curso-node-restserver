@@ -25,6 +25,7 @@ const usuariosPost = async (req = request, res = response) => {
 
   // Encriptar la contraseña
   const salt = bcryptjs.genSaltSync();
+  usuario.google = false;
   usuario.password = bcryptjs.hashSync(password, salt);
 
   // Guardar en BD
@@ -61,14 +62,13 @@ const usuariosPatch = (req, res = response) => {
   });
 }
 
-const usuariosDelete = async (req, res = response) => {
+const usuariosDelete = async (req = request, res = response) => {
   const {id} = req.params;
 
-  // const usuario = await Usuario.findByIdAndDelete(id); // Eliminado fisico
+  const usuario = await Usuario.findByIdAndUpdate(id, {estado: false});
+  const usuarioAutenticado = req.usuario;
 
-  const usuario = await Usuario.findByIdAndUpdate(id, {estado: false}); // Eliminado logico
-
-  res.json(usuario);
+  res.json({usuario, usuarioAutenticado});
 }
 
 export {
