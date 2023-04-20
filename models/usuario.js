@@ -25,6 +25,10 @@ const UsuarioSchema = new mongoose.Schema({
   estado: {
     type: Boolean,
     default: true,
+  },
+  google: {
+    type: Boolean,
+    default: false,
   }
 });
 

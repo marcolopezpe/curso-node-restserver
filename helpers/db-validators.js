@@ -1,8 +1,7 @@
-import Rol from "../models/role.js";
-import Usuario from "../models/usuario.js";
+import {Usuario, Role, Categoria, Producto} from "../models/index.js";
 
 const esRolValido = async (rol = '') => {
-  const existeRol = await Rol.findOne({rol});
+  const existeRol = await Role.findOne({rol});
   if (!existeRol) {
     throw new Error(`El rol ${rol} no está registrado en la BD`);
   }
@@ -22,8 +21,24 @@ const existeUsuarioPorId = async (id) => {
   }
 }
 
+const existeCategoriaPorId = async (id) => {
+  const existeCategoria = await Categoria.findById(id);
+  if (!existeCategoria) {
+    throw new Error(`El id ${id} no existe`);
+  }
+}
+
+const existeProductoPorId = async (id) => {
+  const existeProducto = await Producto.findById(id);
+  if (!existeProducto) {
+    throw new Error(`El id ${id} no existe`);
+  }
+}
+
 export {
   esRolValido,
   emailExiste,
-  existeUsuarioPorId
+  existeUsuarioPorId,
+  existeCategoriaPorId,
+  existeProductoPorId
 }

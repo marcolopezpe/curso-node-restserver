@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "20ed735a-83c3-4e75-ab95-3e5a69ffc03b",
+		"name": "Cafe-Node",
+		"description": "Estos son los Endpoints que tenemos hasta el momento.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6549145"
+	},
+	"item": [
+		{
+			"name": "Crear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"test20\",\n  \"correo\": \"test20@testemail.com\",\n  \"password\": \"123456\",\n  \"rol\": \"USER_ROLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Marco",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"correo\": \"test2@testemail.com\",\n  \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Marco",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Google",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id_token\": \"abc123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/google",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"google"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Marco",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Usuarios - Paginado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"aaaaa\",\n  \"correo\": \"test1@testemail.com\",\n  \"password\": \"123456\",\n  \"rol\": \"USER_ROLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/usuarios?desde=5&limite=10",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "desde",
+							"value": "5"
+						},
+						{
+							"key": "limite",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"aaaaa\",\n  \"correo\": \"test1@testemail.com\",\n  \"password\": \"123456\",\n  \"rol\": \"USER_ROLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/usuarios/643f0c4b2ee986e513bb0d05",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"643f0c4b2ee986e513bb0d05"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Marco",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNmZjE3NTQ1OWQxNmY3YWJkM2YxZGUiLCJpYXQiOjE2ODE5MzgzNDIsImV4cCI6MTY4MTk1Mjc0Mn0.4f2but2ySLELTHn7LmG3ZIZ69tGrzHvLN_U4J3bpZYA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"aaaaa\",\n  \"correo\": \"test1@testemail.com\",\n  \"password\": \"123456\",\n  \"rol\": \"USER_ROLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/usuarios/643ff167459d16f7abd3f1da",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"643ff167459d16f7abd3f1da"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Marco",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categorias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/categorias",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Categoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNmZjE2NzQ1OWQxNmY3YWJkM2YxZGEiLCJpYXQiOjE2ODIwMDEwMTAsImV4cCI6MTY4MjAxNTQxMH0.DTT5AhJgAwnHtMDrp1lE7iWkBiQMlSMe2JzLa3R7rnk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Arroces\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/categorias",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Categoria",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/categorias/34343434",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categorias",
+						"34343434"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Categoria By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/categorias/644150b5d2bd7513808ebef7",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categorias",
+						"644150b5d2bd7513808ebef7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Categoria",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/categorias/34343434",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categorias",
+						"34343434"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/productos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Producto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNmZjE2NzQ1OWQxNmY3YWJkM2YxZGEiLCJpYXQiOjE2ODIwMDEwMTAsImV4cCI6MTY4MjAxNTQxMH0.DTT5AhJgAwnHtMDrp1lE7iWkBiQMlSMe2JzLa3R7rnk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Anita\",\n  \"categoria\": \"64417fe54fa7baaea9cf956c\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/productos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Producto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNmZjE2NzQ1OWQxNmY3YWJkM2YxZGEiLCJpYXQiOjE2ODIwMTM4MTQsImV4cCI6MTY4MjAyODIxNH0.Fd-xGe9P5hdyC1sFgQoeIX-rTY0jFZTHW6SSqzD0n6I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Frejoles\",\n  \"categoria\": \"644150b5d2bd7513808ebefb\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/productos/64417e44e9c4feb4629be65e",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"productos",
+						"64417e44e9c4feb4629be65e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Producto",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNmZjE2NzQ1OWQxNmY3YWJkM2YxZGEiLCJpYXQiOjE2ODIwMTM4MTQsImV4cCI6MTY4MjAyODIxNH0.Fd-xGe9P5hdyC1sFgQoeIX-rTY0jFZTHW6SSqzD0n6I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/productos/64417e44e9c4feb4629be65e",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"productos",
+						"64417e44e9c4feb4629be65e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/buscar/productos/test1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"buscar",
+						"productos",
+						"test1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
