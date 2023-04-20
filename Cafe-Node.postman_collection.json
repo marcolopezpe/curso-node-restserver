@@ -490,15 +490,139 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/buscar/productos/test1",
+					"raw": "{{url}}/api/buscar/usuarios/2",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
 						"buscar",
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subir Archivo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/Users/marcolopez/Pictures/io.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/uploads",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"uploads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cargar Imagen",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/Users/marcolopez/Pictures/frejoles.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/uploads/productos/64417e44e9c4feb4629be65e",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"uploads",
 						"productos",
-						"test1"
+						"64417e44e9c4feb4629be65e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Imagen [Productos]",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/Users/marcolopez/Pictures/frejoles.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/uploads/productos/64417e44e9c4feb4629be65e",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"uploads",
+						"productos",
+						"64417e44e9c4feb4629be65e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Imagen [Usuarios]",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/Users/marcolopez/Pictures/frejoles.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/uploads/usuarios/643ff167459d16f7abd3f1da",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"uploads",
+						"usuarios",
+						"643ff167459d16f7abd3f1da"
 					]
 				}
 			},
