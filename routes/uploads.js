@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {actualizarImagen, cargarArchivo, mostrarImagen} from "../controllers/uploads.js";
+import {actualizarImagen, actualizarImagenCloudinary, cargarArchivo, mostrarImagen} from "../controllers/uploads.js";
 import {check} from "express-validator";
 import {validarArchivoSubir, validarCampos} from "../middlewares/index.js";
 import {coleccionesPermitidas} from "../helpers/index.js";
@@ -13,7 +13,7 @@ router.put('/:coleccion/:id', [
   check('id', 'El id debe ser de Mongo').isMongoId(),
   check('coleccion').custom(c => coleccionesPermitidas(c, ['usuarios', 'productos'])),
   validarCampos
-], actualizarImagen);
+], actualizarImagenCloudinary);
 
 router.get('/:coleccion/:id', [
   check('id', 'El id debe ser de Mongo').isMongoId(),
