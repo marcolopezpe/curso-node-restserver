@@ -5,7 +5,9 @@ import routerCategorias from "../routes/categorias.js";
 import routerUsuarios from "../routes/usuarios.js";
 import routerProductos from "../routes/productos.js";
 import routerBuscar from "../routes/buscar.js";
+import routerUploads from "../routes/uploads.js";
 import dbConnection from "../database/config.js";
+import fileUpload from "express-fileupload";
 
 export class Server {
 
@@ -19,6 +21,7 @@ export class Server {
       categorias: '/api/categorias',
       usuarios: '/api/usuarios',
       productos: '/api/productos',
+      uploads: '/api/uploads',
     }
     // Conectar a base de datos
     this.conectarDB();
@@ -43,6 +46,13 @@ export class Server {
 
     // Directorio público
     this.app.use(express.static('public'));
+
+    // Carga de archivo
+    this.app.use(fileUpload({
+      useTempFiles : true,
+      tempFileDir : '/tmp/',
+      createParentPath: true
+    }));
   }
 
   routes() {
@@ -51,6 +61,7 @@ export class Server {
     this.app.use(this.paths.buscar, routerBuscar);
     this.app.use(this.paths.usuarios, routerUsuarios);
     this.app.use(this.paths.productos, routerProductos);
+    this.app.use(this.paths.uploads, routerUploads);
   }
 
   listen() {
